@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axcallet <axcallet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 17:25:46 by axcallet          #+#    #+#             */
-/*   Updated: 2022/11/09 08:40:31 by axcallet         ###   ########.fr       */
+/*   Created: 2022/11/09 08:51:18 by axcallet          #+#    #+#             */
+/*   Updated: 2022/11/09 09:19:03 by axcallet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*stash = NULL;
+	static char	*stash[1024];
 	char		*line;
 
-	if (fd < 0 || fd > 1023 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
-	stash = ft_read_and_stash(fd, stash);
-	if (!stash || stash[0] == '\0')
+	stash[fd] = ft_read_and_stash(fd, stash[fd]);
+	if (!stash[fd] || stash[fd][0] == '\0')
 	{
-		free(stash);
-		stash = NULL;
+		free(stash[fd]);
+		stash[fd] = NULL;
 		return (NULL);
 	}
-	line = ft_extract_line(stash, line);
+	line = ft_extract_line(stash[fd], line);
 	if (!line || line[0] == '\0')
 	{
-		free(stash);
-		stash = NULL;
+		free(stash[fd]);
+		stash[fd] = NULL;
 		free(line);
 		return (NULL);
 	}
-	stash = ft_clean_stash(stash);
+	stash[fd] = ft_clean_stash(stash[fd]);
 	return (line);
 }
 
