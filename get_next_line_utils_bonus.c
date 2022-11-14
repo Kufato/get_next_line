@@ -6,11 +6,11 @@
 /*   By: axcallet <axcallet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:07:13 by axcallet          #+#    #+#             */
-/*   Updated: 2022/11/09 08:51:45 by axcallet         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:13:43 by axcallet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_found_new_line(char *stash)
 {

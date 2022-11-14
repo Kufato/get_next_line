@@ -6,18 +6,18 @@
 /*   By: axcallet <axcallet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 08:51:18 by axcallet          #+#    #+#             */
-/*   Updated: 2022/11/09 09:19:03 by axcallet         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:13:31 by axcallet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
 	static char	*stash[1024];
 	char		*line;
 
-	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
 	stash[fd] = ft_read_and_stash(fd, stash[fd]);

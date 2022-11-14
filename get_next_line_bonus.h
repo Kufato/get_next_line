@@ -6,15 +6,13 @@
 /*   By: axcallet <axcallet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 08:51:30 by axcallet          #+#    #+#             */
-/*   Updated: 2022/11/09 09:02:13 by axcallet         ###   ########.fr       */
+/*   Updated: 2022/11/14 09:34:08 by axcallet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# include <stdio.h> // Remove before push !!!
-# include <fcntl.h> // Remove before push !!!
 # include <unistd.h>
 # include <stdlib.h>
 
